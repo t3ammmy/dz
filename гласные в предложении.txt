@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14
+{
+    class Program
+    {
+        public static int glasniye(int kolvo)
+        {
+            string predlozheniye = Console.ReadLine();
+            char[] letters = new char[] { 'à', 'ó', 'å', 'î', 'ý', 'ÿ', 'è', 'û' };
+            foreach (char letter in predlozheniye)
+            {
+               foreach(char let in letters)
+                {
+                    if (let == letter)
+                    {
+                        kolvo++;
+                    }                                    
+                }                   
+            }
+
+            return kolvo;
+        }
+
+        public static int factorial(int x)
+        {
+            if (x == 1)
+            {
+                return x;
+            }
+            else
+            {
+                return x * factorial(x-1);
+            }
+        }
+
+        public static double task(double a,double b,double c=0.0f) 
+        {
+             c = Convert.ToDouble(Math.Sqrt((a * a) + (b * b))); 
+             return c; 
+        }
+
+
+
+
+   
+        
+
+
+
+        static void Main(string[] args)
+        {
+
+
+            
+        }
