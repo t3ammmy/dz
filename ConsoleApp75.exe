@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp75
+{
+    class Women
+    {
+        public string name;
+        public int age;
+        public string her_husband = "Not married";
+        
+        public void marryWomen(Man husband)
+        {
+            if(husband.his_wife == "Not married" && this.her_husband == "Not married")
+            {
+                this.her_husband = husband.name;
+                husband.his_wife = this.name;
+            }
+            else
+            {
+                Console.WriteLine("\nВыйти замуж нельзя, у вас уже есть пара");
+            }
+        }       
+}
+    class Man
+    {
+        public string name;
+        public int age;
+        public string his_wife = "Not married";
+
+        public void marryMan(Women wife)
+        {                      
+            if (wife.her_husband == "Not married" && this.his_wife == "Not married")
+            {                
+                this.his_wife = wife.name;
+                wife.her_husband = this.name;                            
+            }
+            else 
+            {
+                Console.WriteLine("\nЖенитсья нельзя, у этого мужчины уже есть пара.");
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Women Dasha = new Women();
+            Dasha.age = 30;
+            Dasha.name = "Dasha";
+
+            Women Masha = new Women();
+            Masha.age = 25;
+            Masha.name = "Masha";
+            
+            Man Ivan = new Man();
+            Ivan.age = 30;
+            Ivan.name = "Ivan";
+
+            Ivan.marryMan(Masha);
+
+            Console.WriteLine("\n" + "Name: " + Masha.name + "\n Age:" + Masha.age + "\n Husband/Wife:" + Masha.her_husband);
+            Console.WriteLine("Name: " + Ivan.name + "\n Age:" + Ivan.age + "\n Husband/Wife:" + Ivan.his_wife);
+            Console.WriteLine("Name: " + Dasha.name + "\n Age:" + Dasha.age + "\n Husband/Wife:" + Dasha.her_husband);
+
+            Masha.marryWomen(Ivan);
+
+            Console.WriteLine("\n" + "Name: " + Masha.name + "\n Age:" + Masha.age + "\n Husband/Wife:" + Masha.her_husband);
+            Console.WriteLine("Name: " + Ivan.name + "\n Age:" + Ivan.age + "\n Husband/Wife:" + Ivan.his_wife);
+            Console.WriteLine("Name: " + Dasha.name + "\n Age:" + Dasha.age + "\n Husband/Wife:" + Dasha.her_husband);
+
+            Console.ReadKey();
+        }
+    }
+}
